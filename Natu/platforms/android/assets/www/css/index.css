@@ -1,0 +1,218 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#0d4566;
+    background-image:linear-gradient(top, #1697d8 0%, #0d4566 51%);
+    background-image:-webkit-linear-gradient(top, #1697d8 0%, #0d4566 51%);
+    background-image:-ms-linear-gradient(top, #1697d8 0%, #0d4566 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #1697d8),
+        color-stop(0.51, #0d4566)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    /*text-transform:uppercase;*/
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    /*background:url(../img/logo.png) no-repeat center top;*/ /* 170px x 200px */
+    /*position:absolute;*/             /* position in the center of the screen */
+    /*left:50%;*/
+    /*top:50%;*/
+    /*height:50px;*/                   /* text area height */
+    /*width:225px;*/                   /* text area width */
+    /*text-align:center;*/
+    /*padding:180px 0px 0px 0px;*/     /* image height is 200px (bottom 20px are overlapped with text) */
+    /*margin:-115px 0px 0px -112px;*/  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+    height: 100%;
+    background: url(../img/logoGTS.png) no-repeat left top;
+}
+
+#nav {
+    float: right;
+    color: white;
+    margin-top: 1em;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#nav li {
+    display: inline-block;
+    margin: 0.5em;
+}
+
+#page {
+    padding-top: 25%;
+    color: #FFFFFF;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size:16px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    margin-bottom: 2em;
+    margin-top: -1.5em;
+}
+
+input, button{
+    display: block;
+    width: 30%;
+    text-align:center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input {
+    height: 2em;
+}
+
+p {
+    margin-top: 1em;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#page li {
+    padding-right: 3em;
+    margin-bottom: 1em;
+}
+
+img {
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+#animate {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    left:0px;
+    /*z-index: -1;*/
+    overflow: hidden;
+}
+
+#natu {
+    position: absolute;
+    height: 174px;
+    width: 170px;
+    background: url(../img/natu.png) 0px 0px no-repeat;
+    margin-top: 300%;
+    -webkit-animation:  saut 2s 1 ease-out,
+                        whut 1s steps(3) 2s 2,
+                        chute 1s 4s 1 ease-in;
+    animation:          saut 2s 1 ease-out,
+                        whut 1s steps(3) 2s 2,
+                        chute 1s 4s 1 ease-in;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes saut
+{
+    0% { margin-top: 300%;}
+    100% { margin-top: 10%;}
+}
+
+/* Standard syntax */
+@keyframes saut
+{
+    0% { margin-top: 300%;}
+    100% { margin-top: 10%;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes whut
+{
+    0% { margin-top: 10%;background-position: -170px 0px;}
+    50% { margin-top: 15%;background-position: -170px -522px;}
+    100% { margin-top: 10%;background-position: -170px 0px;}
+}
+
+/* Standard syntax */
+@keyframes whut
+{
+    0% { margin-top: 10%;background-position: -170px 0px;}
+    50% { margin-top: 15%;background-position: -170px -522px;}
+    100% { margin-top: 10%;background-position: -170px 0px;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes chute
+{
+    0% { margin-top: 10%;background-position: -340px 0px;}
+    100% { margin-top: 150%;background-position: -340px 0px;}
+}
+
+/* Standard syntax */
+@keyframes chute
+{
+    0% { margin-top: 10%;background-position: -340px 0px;}
+    100% { margin-top: 150%;background-position: -340px 0px;}
+}
